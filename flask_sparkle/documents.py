@@ -1,5 +1,5 @@
 from mongoengine import *
-from common.documents import DocumentBase
+from flask_common.documents import DocumentBase
 
 
 class Version(EmbeddedDocument):
