@@ -5,7 +5,7 @@
         <link>{{ url_for(".appcast", slug=application.slug, _external=True) }}</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
-        {% for version in application.versions %}
+        {% for version in application.versions %}{% if version.is_published %}
             <item>
                 <title>{{ version.title }}</title>
 			    <description><![CDATA[
@@ -16,7 +16,7 @@
                 {% if version.minimum_system_version %}<sparkle:minimumSystemVersion>{{ version.minimum_system_version }}</sparkle:minimumSystemVersion>{% endif %}
                 <enclosure url="{{ version.update_url }}" sparkle:version="{{ version.version }}" {% if version.short_version %}sparkle:shortVersionString="{{ version.short_version }}"{% endif %} length="{{ version.length }}" type="application/octet-stream" {% if version.dsa_signature %}sparkle:dsaSignature="{{ version.dsa_signature }}"{% endif %} />
             </item>
-        {% endfor %}
+        {% endif %}{% endfor %}
    </channel>
 </rss>
 

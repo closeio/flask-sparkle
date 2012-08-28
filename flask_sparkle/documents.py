@@ -11,15 +11,17 @@ class Version(EmbeddedDocument):
     short_version = StringField()
     length = StringField()
     dsa_signature = StringField()
+    is_published = BooleanField()
 
 
 class Application(DocumentBase):
     name = StringField()
-    slug = StringField()
+    slug = StringField(unique=True)
 
     versions = ListField(EmbeddedDocumentField(Version))
 
     def latest_version(self):
         versions = self.versions
-        if versions:
-            return versions[-1].version
+        for version in reversed(versions):
+            if version.is_published:
+                return version.version
