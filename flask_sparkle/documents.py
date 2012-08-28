@@ -22,6 +22,6 @@ class Application(DocumentBase):
 
     def latest_version(self):
         versions = self.versions
-        for version in reversed(versions):
+        for version in versions:
             if version.is_published:
                 return version.version
