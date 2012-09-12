@@ -1,4 +1,3 @@
-from flask import render_template
 from flask_views.db.mongoengine.detail import DetailView
 
 from flask_sparkle import sparkle
@@ -16,7 +15,7 @@ sparkle.add_url_rule('/<slug>/appcast.xml', view_func=AppcastView.as_view('appca
 try:
     from flask.ext.mongorest.views import ResourceView
     from flask_sparkle.resources import ApplicationResource
-    from flask.ext.mongorest import methods  
+    from flask.ext.mongorest import methods
     from flask.ext.mongorest.authentication import AuthenticationBase
     from flask.ext.principal import Permission, RoleNeed
 

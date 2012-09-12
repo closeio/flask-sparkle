@@ -1,6 +1,5 @@
 from flask.ext.mongorest.resources import Resource
 from flask_sparkle.documents import Application, Version
-from mongoengine.queryset import Q
 
 
 class VersionResource(Resource):
