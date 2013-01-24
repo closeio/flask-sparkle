@@ -27,4 +27,5 @@ class Application(DocumentBase):
                 return version
 
     def latest_version_string(self):
-        return self.latest_version().version
+        latest_version = self.latest_version()
+        return latest_version and latest_version.version
