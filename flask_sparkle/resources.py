@@ -12,5 +12,5 @@ class ApplicationResource(Resource):
         'versions': VersionResource
     }
 
-    def get_object(self, pk):
+    def get_object(self, pk, **kwargs):
         return self.get_queryset().get(slug=pk)
