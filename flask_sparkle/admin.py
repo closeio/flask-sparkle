@@ -1,9 +1,9 @@
-from flask.ext.admin.contrib.mongoengine.view import ModelView
+from flask.ext.superadmin import model
 
 from flask_sparkle.documents import *
 
-class ApplicationView(ModelView):
-    list_columns = ['name', 'slug', 'latest_version_string']
+class ApplicationAdmin(model.ModelAdmin):
+    list_display = ['name', 'slug', 'latest_version_string']
 
 def register(admin):
-    admin.add_view(ApplicationView(Application, name='Application', endpoint='sparkle/application', category='Sparkle'))
+    admin.register(Application, ApplicationAdmin, name='Sparkle')

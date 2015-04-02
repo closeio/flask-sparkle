@@ -17,13 +17,12 @@ try:
     from flask_sparkle.resources import ApplicationResource
     from flask.ext.mongorest import methods
     from flask.ext.mongorest.authentication import AuthenticationBase
-    from flask.ext.principal import Permission, RoleNeed
+    from flask.ext.login import current_user
 
-    sparkle_permission = Permission(RoleNeed('sparkle'))
 
     class SparkleAuthentication(AuthenticationBase):
         def authorized(self, obj=None):
-            return sparkle_permission.can()
+            return 'sparkle' in getattr(current_user, 'roles', [])
 
     class ApplicationView(ResourceView):
         resource = ApplicationResource
