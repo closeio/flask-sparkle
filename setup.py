@@ -2,9 +2,13 @@ from setuptools import setup
 
 setup(
     name='flask-sparkle',
-    version='0.2',
+    version='0.2.1',
     url='http://github.com/closeio/flask-sparkle',
     license='MIT',
+    author='Close.io',
+    author_email='engineering@close.io',
+    maintainer='Close.io',
+    maintainer_email='engineering@close.io',
     description='Flask app that publishes Sparkle update feeds',
     platforms='any',
     classifiers=[
@@ -17,4 +21,7 @@ setup(
     packages=[
         'flask_sparkle',
     ],
+    package_data={
+        'flask_sparkle': ['templates/*']
+    },
 )
