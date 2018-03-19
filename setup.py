@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='flask-sparkle',
-    version='0.2.1',
+    version='0.3.0',
     url='http://github.com/closeio/flask-sparkle',
     license='MIT',
     author='Close.io',
