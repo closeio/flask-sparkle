@@ -1,5 +1,8 @@
-from cleancat import *
+from cleancat import URL, Bool, DateTime, List, Schema, String
+from cleancat.mongo import MongoEmbedded
+
 from flask_sparkle import documents
+
 
 class Version(Schema):
     date_published = DateTime(required=False)
@@ -11,6 +14,7 @@ class Version(Schema):
     length = String(required=False)
     dsa_signature = String(required=False)
     is_published = Bool(required=False)
+
 
 class Application(Schema):
     name = String()
